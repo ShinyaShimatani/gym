@@ -19,3 +19,7 @@ use App\Memo;
 Route::get('/', 'MemosController@index')->name('index');
 
 Route::get('/create', 'MemosController@create')->name('create');
+Route::post('/store','MemosController@store')->name('store');
+Route::get('/edit', 'MemosController@edit')->name('edit');
+Route::post('/update','MemosController@update')->name('update');
+Route::get('/delete', 'MemosController@delete')->name('delete');
