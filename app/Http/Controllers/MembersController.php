@@ -12,8 +12,8 @@ class MembersController extends Controller
         return view('index',['members' => $members]);
     }
 
-    public function form(){
-        return view('form');
+    public function register(){
+        return view('register');
     }
 
 }

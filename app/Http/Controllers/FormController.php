@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Member;
 use Validator;
 
 class FormController extends Controller
 {
-    private $formItems = ["name", "gender", "age", "email", "course" , "profile"];
+    public $formItems = ["name", "gender", "age", "email", "course" , "profile"];
 
-	private $validator = [
+	public $validator = [
 		"name" => "required|string|max:20",
 		"gender" => "required|string",
         "email" => "required|string|max:20",
@@ -17,11 +18,11 @@ class FormController extends Controller
         "profile" => "required|string|max:100"
 	];
 
-	function show(){
-		return view("form");
+	public function show(){
+		return view("register");
 	}
 
-	function post(Request $request){
+	public function post(Request $request){
 		
 		$input = $request->only($this->formItems);
 		
@@ -38,7 +39,7 @@ class FormController extends Controller
         return redirect()->action("FormController@confirm");
     }
 
-    function confirm(Request $request){
+    public function confirm(Request $request){
 		//セッションから値を取り出す
 		$input = $request->session()->get("form_input");
 		
@@ -49,13 +50,60 @@ class FormController extends Controller
         return view("form_confirm",["input" => $input]);
     }
         
-    function send(Request $request){
+    public function send(Request $request){
+
+		//データをデータベースに送信する
+          //1.もし、ポストにデータがあるならば・・・
+        if (isset($_POST["name"], $_POST["gender"], $_POST["age"], $_POST["email"], $_POST["course"], $_POST["profile"])) {
+          // 2.ポストのデータを変数にする
+        $name = $_POST["name"];
+        $gender = $_POST["gender"];
+        $age = $_POST["age"];
+        $email = $_POST["email"];
+        $course = $_POST["course"];
+        $profile = $_POST["profile"];
+        }
+        // 3.データベースに接続する
+        $pdo = new PDO(
+         "mysql:dbname=gym;host=localhost","root",array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET `utf8`")
+        );
+        // 4.データベースに繋がっているか確認する
+        if ($pdo) {
+        //繋がってるときはこんな表示したくないのでコメントアウト
+        //echo "データベースに繋がっています";
+		} 
+		else {
+        "データベースに繋がってないですよ";
+        }       
+
+        // 5.データベースのテーブルにデータをぶち込む準備をし、それを$regist変数に定義する
+        $regist = $pdo->prepare("INSERT INTO members(name,gender,age,email,course,profile) VALUES (?,?,?,?,?,?,?,?)");
+
+        // ぶち込みのルールを決めます
+        // データベースのそれぞれの引き出しに上で定義した変数の値をぶち込みます
+        //bindParamとは?
+        $regist->bindParam("name", $name);
+        $regist->bindParam("gender", $gender);
+        $regist->bindParam("age", $age);
+        $regist->bindParam("email", $email);
+        $regist->bindParam("course", $course);
+        $regist->bindParam("profile", $profile);
+        
+        // さぁ、ぶち込みを実行しましょう
+        $regist->execute(array($name, $gender, $age, $emaik, $course, $profile));
+
+        if ($regist) {
+        echo "登録完了しました";
+        } else {
+        echo "エラーです";
+        }
+
         //セッションから値を取り出す
         $input = $request->session()->get("form_input");
             
          //戻るボタンが押された時
 		if($request->has("back")){
-    		return redirect()->action("SampleFormController@show")
+    		return redirect()->action("FormController@show")
     			   ->withInput($input);
 		}
 
@@ -64,7 +112,6 @@ class FormController extends Controller
             return redirect()->action("FormController@show");
         }
     
-        //ここでメールを送信するなどを行う
     
         //セッションを空にする
         $request->session()->forget("form_input");
@@ -72,7 +119,7 @@ class FormController extends Controller
         return redirect()->action("FormController@complete");
     }
 
-    function complete(){	
+    public function complete(){	
         return view("form_complete");
     }
 

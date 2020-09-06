@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <a href="{{route('form')}}" class="btn btn-primary" style="margin:20px;">利用者を登録する</a>
+            <a href="{{route('register')}}" class="btn btn-primary" style="margin:20px;">利用者を登録する</a>
         </div>
     </div>
 

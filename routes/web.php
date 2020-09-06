@@ -18,7 +18,7 @@ use App\Member;
 
 Route::get('/', 'MembersController@index')->name('index');
 
-Route::get('/form', 'MembersController@form')->name('form');
+Route::get('/register', 'MembersController@register')->name('register');
 Route::post('/store','MembersController@store')->name('store');
 Route::get('/edit', 'MembersController@edit')->name('edit');
 Route::post('/update','MembersController@update')->name('update');
