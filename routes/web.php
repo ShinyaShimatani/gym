@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
-use App\Memo;
+use App\Member;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +16,16 @@ use App\Memo;
 |
 */
 
-Route::get('/', 'MemosController@index')->name('index');
+Route::get('/', 'MembersController@index')->name('index');
 
-Route::get('/create', 'MemosController@create')->name('create');
-Route::post('/store','MemosController@store')->name('store');
-Route::get('/edit', 'MemosController@edit')->name('edit');
-Route::post('/update','MemosController@update')->name('update');
-Route::get('/delete', 'MemosController@delete')->name('delete');
+Route::get('/form', 'MembersController@form')->name('form');
+Route::post('/store','MembersController@store')->name('store');
+Route::get('/edit', 'MembersController@edit')->name('edit');
+Route::post('/update','MembersController@update')->name('update');
+Route::get('/delete', 'MembersController@delete')->name('delete');
+
+Route::get('/form', "FormController@show")->name("form.show");
+Route::post('/form', "FormController@post")->name("form.post");
+Route::get('/form/confirm', "FormController@confirm")->name("form.confirm");
+Route::post('/form/confirm', "FormController@send")->name("form.send");
+Route::get('/form/thanks', "FormController@complete")->name("form.complete");
