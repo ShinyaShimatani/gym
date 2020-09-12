@@ -19,7 +19,6 @@ use App\Member;
 Route::get('/', 'MembersController@index')->name('index');
 
 Route::get('/register', 'MembersController@register')->name('register');
-
 Route::get('/edit', 'MembersController@edit')->name('edit');
 Route::post('/update','MembersController@update')->name('update');
 Route::get('/delete', 'MembersController@delete')->name('delete');

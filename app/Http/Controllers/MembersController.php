@@ -8,7 +8,7 @@ use App\Member;
 class MembersController extends Controller
 {
     public function index(){
-        $members = Member::orderBy('created_at','desc')->get();
+        $members = Member::orderBy('id','asc')->get();
         return view('index',['members' => $members]);
     }
 
@@ -38,6 +38,12 @@ class MembersController extends Controller
         $member->fill($course)->save();
         $member->fill($profile)->save();
         
+        return redirect()->route('index');
+    }
+
+    public function delete(Request $request){
+        $member = Member::find($request->id);
+        $member->delete();
         return redirect()->route('index');
     }
 
