@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Input;
 use App\Member;
 use Validator;
 
@@ -12,7 +13,7 @@ class FormController extends Controller
 
 	public $validator = [
 		"name" => "required|string|max:20",
-		"gender" => "required|string",
+        "gender" => "required|string",
         "email" => "required|string|max:20",
         "course" => "required|string|max:20",
         "profile" => "required|string|max:100"
@@ -20,9 +21,30 @@ class FormController extends Controller
 
 	public function show(){
 		return view("register");
-	}
+    }
 
-	public function post(Request $request){
+    public function store(Request $request){
+
+         //インスタンス生成
+         $member = new Member;
+
+         $member->name = $request->name;
+         $member->gender = $request->gender;
+         $member->age = $request->age;
+         $member->email = $request->email;
+         $member->course = $request->course;
+         $member->profile = $request->profile;
+
+         //保存
+         $member->save();
+
+         return view('form_complete');
+    }
+
+    
+    
+    /*
+    public function post(Request $request){
 		
 		$input = $request->only($this->formItems);
 		
@@ -38,6 +60,8 @@ class FormController extends Controller
 
         return redirect()->action("FormController@confirm");
     }
+    
+    
 
     public function confirm(Request $request){
 		//セッションから値を取り出す
@@ -118,6 +142,7 @@ class FormController extends Controller
     
         return redirect()->action("FormController@complete");
     }
+    */
 
     public function complete(){	
         return view("form_complete");

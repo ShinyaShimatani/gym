@@ -19,13 +19,17 @@ use App\Member;
 Route::get('/', 'MembersController@index')->name('index');
 
 Route::get('/register', 'MembersController@register')->name('register');
-Route::post('/store','MembersController@store')->name('store');
+
 Route::get('/edit', 'MembersController@edit')->name('edit');
 Route::post('/update','MembersController@update')->name('update');
 Route::get('/delete', 'MembersController@delete')->name('delete');
 
+Route::post('/register/store', "FormController@store")->name("store");
 Route::get('/form', "FormController@show")->name("form.show");
-Route::post('/form', "FormController@post")->name("form.post");
-Route::get('/form/confirm', "FormController@confirm")->name("form.confirm");
-Route::post('/form/confirm', "FormController@send")->name("form.send");
-Route::get('/form/thanks', "FormController@complete")->name("form.complete");
+
+//以下削除したルーティング
+//Route::post('/store','MembersController@store')->name('store');
+//Route::post('/form', "FormController@post")->name("form.post");
+//Route::get('/form/confirm', "FormController@confirm")->name("form.confirm");
+//Route::post('/form/confirm', "FormController@send")->name("form.send");
+//Route::post('form/complete', "FormController@complete");

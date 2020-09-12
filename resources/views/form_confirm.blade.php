@@ -3,37 +3,37 @@
 @section('content')
 
 <h>確認</h>
- <form method="post" action="{{ route('form.send') }}">
+ <form method="post" action="{{ route('form.complete') }}">
         @csrf
 
         <label>名前</label>
         <div>
-                {{ $input["name"] }}
+                {{ $member }}
         </div>
 
         <label>性別</label>
         <div>
-                {{ $input['gender'] }}
+                {{ $gender }}
         </div>
 
         <label>年齢</label>
         <div>
-                {{ $input['age'] }}
+                {{ $age }}
         </div>
 
-  <label>メールアドレス</label>
+        <label>メールアドレス</label>
         <div>
-                {{ $input['email'] }}
+                {{ $email }}
         </div>
 
-  <label>受講コース</label>
+        <label>受講コース</label>
         <div>
-                {{ $input['course'] }}
+                {{ $course }}
         </div>
 
-  <label>意気込み / 当ジムへの一言</label>
+        <label>意気込み / 当ジムへの一言</label>
         <div>
-                {{ $input['profile'] }}
+                {{ $profile }}
         </div>
 
         <input name="back" type="submit" value="戻る" />

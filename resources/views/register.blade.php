@@ -14,13 +14,13 @@
 </div>
 @endif
 
-<form method="post" action="{{ route('form.post') }}">
+<form method="post" action="{{route('store')}}">
 
   @csrf
 
     <label>名前</label>
 	  <div>
-		<input type="text" name="name" value="{{ old('name') }}" class="form-control">
+		<input type="text" name="name" class="form-control">
 	  </div>
 
     <div class="form-group">
@@ -48,7 +48,7 @@
     <input type="text" name="profile" class="form-control">
     </div>
 
-    <button type="post" class="btn btn-primary" action="/confirm">確認する</button>
+    <button type="post" class="btn btn-primary" action="/confirm">登録する</button>
   
 </form>
 
