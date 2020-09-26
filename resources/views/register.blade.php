@@ -2,7 +2,9 @@
 
 @section('content')
 
+<div class="topics" style="padding: 16px">
 <strong>新規会員登録フォーム</strong>
+</div>
 
 @if ($errors->any())
 <div style="color:red;">
@@ -18,15 +20,17 @@
 
   @csrf
 
-    <label>名前</label>
-	  <div>
-		<input type="text" name="name" class="form-control">
-	  </div>
-
-    <div class="form-group">
-    <label for="gender">性別</label>
-    <input type="text" name="gender" class="form-control">
+  　<div class="form-group">
+    <label for="age">名前</label>
+    <input type="text" name="name" class="form-control">
     </div>
+
+    <div class="form-group" style="padding-top: 8px">
+    <label for="age">性別</label><br>
+     <input id="gender-f" type="radio" name="gender" value="女性">
+     <label for="gender-f">女性</label>
+     <input id="gender-m" type="radio" name="gender" value="男性">
+     <label for="gender-m">男性</label>
 
     <div class="form-group">
     <label for="age">年齢</label>
@@ -48,7 +52,7 @@
     <input type="text" name="profile" class="form-control">
     </div>
 
-    <button type="post" class="btn btn-primary" action="/confirm">登録する</button>
+    <button type="post" class="btn btn-primary" action="/confirm" style="margin: 16px">登録する</button>
   
 </form>
 

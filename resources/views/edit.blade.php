@@ -8,8 +8,11 @@
  <label>名前</label>
  <textarea name="name" class="form-control" type="text" rows="1">{{$member->name}}</textarea>
 
- <label>性別</label>
- <textarea name="gender" class="form-control" type="text" rows="1">{{$member->gender}}</textarea>
+ <label>性別</label><br>
+     <input id="gender-f" type="radio" name="gender" value="女性">
+     <label for="gender-f">女性</label>
+     <input id="gender-m" type="radio" name="gender" value="男性">
+     <label for="gender-m">男性</label><br>
 
  <label>年齢</label>
  <textarea name="age" class="form-control" type="text" rows="1">{{$member->age}}</textarea>
