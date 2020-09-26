@@ -32,7 +32,7 @@
     @endforeach
   @endif
   
-  <button type="submit">更新</button>
+  <button type="submit" style="margin: 16px">更新</button><br>
   <a href="{{ route('index') }}">キャンセル</a> 
   
  </form>
