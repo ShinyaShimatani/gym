@@ -36,6 +36,11 @@
                 {{ $demand }}
         </div>
 
+        <label>要望検討</label>
+        <div>
+                {{ $demand_nec }}
+        </div>
+
         <input name="back" type="submit" value="戻る" />
         <input type="submit" value="登録する" />
 

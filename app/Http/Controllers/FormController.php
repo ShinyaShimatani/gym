@@ -34,6 +34,8 @@ class FormController extends Controller
          $member->email = $request->email;
          $member->course = $request->course;
          $member->demand = $request->demand;
+         $member->demand_nec = $request->demand_nec;
+
 
          //保存
          $member->save();

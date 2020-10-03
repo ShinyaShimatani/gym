@@ -52,6 +52,13 @@
     <input type="text" name="demand" class="form-control">
     </div>
 
+    <div class="form-group" style="padding-top: 8px">
+    <label for="demand_nec">要望検討</label><br>
+    <input id="demand_nec-Y" type="radio" name="demand_nec" value="要検討">
+    <label for="demand_nec-Y">要検討</label>
+    <input id="demand_nec-N" type="radio" name="demand_nec" value="見送り">
+    <label for="demand_nec-N">見送り</label><br>
+
     <button type="post" class="btn btn-primary" action="/confirm" style="margin: 16px">登録する</button>
   
 </form>

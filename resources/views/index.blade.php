@@ -20,6 +20,8 @@
         <th>メールアドレス</th>
         <th>受講コース</th>
         <th>当ジムへの要望</th>
+        <th>要望検討</th>
+
         <th>処理</th>
     <!-- loop -->
     @foreach($members as $member)
@@ -31,6 +33,7 @@
             <td>{{$member->email}}</td>
             <td>{{$member->course}}</td>
             <td>{{$member->demand}}</td>
+            <td>{{$member->demand_nec}}</td>
 
             <td><a href="{{route('edit',['id'=>$member->id])}}">編集</a> ; 
             <a href="{{route('delete',['id'=>$member->id])}}">削除</a></td>

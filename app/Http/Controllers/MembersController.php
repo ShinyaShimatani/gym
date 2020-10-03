@@ -29,7 +29,9 @@ class MembersController extends Controller
         $age = $request->validate(['age' => 'required']);
         $email = $request->validate(['email' => 'required|max:40']);
         $course = $request->validate(['course' => 'required|max:20']);
-        $request = $request->validate(['demand' => 'required|max:100']);
+        $demand = $request->validate(['demand' => 'required|max:100']);
+        $demand_nec = $request->validate(['demand_nec' => 'required']);
+
 
         $member->fill($name)->save();
         $member->fill($gender)->save();
@@ -37,6 +39,7 @@ class MembersController extends Controller
         $member->fill($email)->save();
         $member->fill($course)->save();
         $member->fill($demand)->save();
+        $member->fill($demand_nec)->save();
         
         return redirect()->route('index');
     }

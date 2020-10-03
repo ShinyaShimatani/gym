@@ -21,6 +21,7 @@ class CreateMembersTable extends Migration
             $table->string('email');
             $table->string('course');
             $table->string('demand','100');
+            $table->string('demand_nec');
             $table->timestamps();
         });
     }

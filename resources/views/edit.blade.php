@@ -26,6 +26,12 @@
  <label>当ジムへの要望</label>
  <textarea name="demand" class="form-control" type="text" rows="1">{{$member->demand}}</textarea>
 
+ <label>要望検討</label><br>
+    <input id="demand_nec-Y" type="radio" name="demand_nec" value="要検討">
+    <label for="demand_nec-Y">要検討</label>
+    <input id="demand_nec-N" type="radio" name="demand_nec" value="見送り">
+    <label for="demand_nec-N">見送り</label><br>
+
   @if($errors->any())
     @foreach ($errors->all() as $error)
       <p>{{ $error }}</p>
