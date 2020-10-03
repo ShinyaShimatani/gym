@@ -48,8 +48,8 @@
     </div>
 
     <div class="form-group">
-    <label for="profile">意気込み / 当ジムへの一言</label>
-    <input type="text" name="profile" class="form-control">
+    <label for="demand">当ジムへの要望</label>
+    <input type="text" name="demand" class="form-control">
     </div>
 
     <button type="post" class="btn btn-primary" action="/confirm" style="margin: 16px">登録する</button>

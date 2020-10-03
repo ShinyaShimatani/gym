@@ -31,9 +31,9 @@
                 {{ $course }}
         </div>
 
-        <label>意気込み / 当ジムへの一言</label>
+        <label>当ジムへの要望</label>
         <div>
-                {{ $profile }}
+                {{ $demand }}
         </div>
 
         <input name="back" type="submit" value="戻る" />

@@ -17,8 +17,10 @@ class CreateMembersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('gender');
+            $table->string('age');
+            $table->string('email');
             $table->string('course');
-            $table->string('profile','100');
+            $table->string('demand','100');
             $table->timestamps();
         });
     }

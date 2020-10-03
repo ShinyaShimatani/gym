@@ -9,14 +9,14 @@ use Validator;
 
 class FormController extends Controller
 {
-    public $formItems = ["name", "gender", "age", "email", "course" , "profile"];
+    public $formItems = ["name", "gender", "age", "email", "course" , "demand"];
 
 	public $validator = [
 		"name" => "required|string|max:20",
         "gender" => "required|string",
-        "email" => "required|string|max:20",
+        "email" => "required|string|max:40",
         "course" => "required|string|max:20",
-        "profile" => "required|string|max:100"
+        "demand" => "required|string|max:100"
 	];
 
 	public function show(){
@@ -33,7 +33,7 @@ class FormController extends Controller
          $member->age = $request->age;
          $member->email = $request->email;
          $member->course = $request->course;
-         $member->profile = $request->profile;
+         $member->demand = $request->demand;
 
          //保存
          $member->save();

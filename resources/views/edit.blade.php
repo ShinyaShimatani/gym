@@ -23,8 +23,8 @@
  <label>受講コース</label>
  <textarea name="course" class="form-control" type="text" rows="1">{{$member->course}}</textarea>
 
- <label>担当トレーナーへの一言</label>
- <textarea name="profile" class="form-control" type="text" rows="1">{{$member->profile}}</textarea>
+ <label>当ジムへの要望</label>
+ <textarea name="demand" class="form-control" type="text" rows="1">{{$member->demand}}</textarea>
 
   @if($errors->any())
     @foreach ($errors->all() as $error)

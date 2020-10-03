@@ -27,16 +27,16 @@ class MembersController extends Controller
         $name = $request->validate(['name' => 'required|max:20']);
         $gender = $request->validate(['gender' => 'required']);
         $age = $request->validate(['age' => 'required']);
-        $email = $request->validate(['email' => 'required|max:20']);
+        $email = $request->validate(['email' => 'required|max:40']);
         $course = $request->validate(['course' => 'required|max:20']);
-        $profile = $request->validate(['profile' => 'required|max:100']);
+        $request = $request->validate(['demand' => 'required|max:100']);
 
         $member->fill($name)->save();
         $member->fill($gender)->save();
         $member->fill($age)->save();
         $member->fill($email)->save();
         $member->fill($course)->save();
-        $member->fill($profile)->save();
+        $member->fill($demand)->save();
         
         return redirect()->route('index');
     }
