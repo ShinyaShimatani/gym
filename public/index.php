@@ -55,6 +55,12 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
+//以下追記(データベース接続が正しく設定されていることを確認する)
+if(DB::connection()->getDatabaseName())
+{
+   echo "Connected to database ".DB::connection()->getDatabaseName();
+}
+
 $response->send();
 
 $kernel->terminate($request, $response);

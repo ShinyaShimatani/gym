@@ -48,7 +48,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('aae83m7roj21km.ckfhgj3l6pp3.ap-northeast-1.rds.amazonaws.com', '127.0.0.1'),
             'port' => env('3306', '3306'),
-            'database' => env('ebdb', 'forge'),
+            'database' => env('edbd', 'forge'),
             'username' => env('root', 'forge'),
             'password' => env('0218shinyA', ''),
             'unix_socket' => env('DB_SOCKET', ''),
